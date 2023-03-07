@@ -297,12 +297,16 @@ class FrameManager {
     }
     _contextIdToContext.remove(executionContextId);
     if (context.world != null) {
+      print(['HAMMER', 'page.url', page.url, '_contextIdToContext',
+        _contextIdToContext, 'executionContextId', executionContextId]);
       context.world!.setContext(null);
     }
   }
 
   void _onExecutionContextsCleared(_) {
     for (var context in _contextIdToContext.values) {
+      print(['HAMMER', 'page.url', page.url, '_contextIdToContext',
+        _contextIdToContext]);
       if (context.world != null) context.world!.setContext(null);
     }
     _contextIdToContext.clear();
